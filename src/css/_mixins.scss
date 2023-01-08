@@ -1,0 +1,102 @@
+
+$small: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-m: 1440px;
+$desktop-wide: 1920px;
+
+
+@mixin respond($media) {
+    @if $media == mob {
+        @media (min-width: $small) { @content; }
+    }
+    @else if $media == tablet {
+        @media (min-width: $tablet) { @content; }
+    }
+    @else if $media == desktop {
+        @media (min-width: $desktop) { @content; }
+    }
+    @else if $media == desktop-m {
+        @media (min-width: $desktop-m) { @content; }
+    }
+    @else if $media == desktop-wide {
+        @media (min-width: $desktop-wide) { @content; }
+    }
+}
+
+
+@mixin cf(){
+    display: block;
+    clear:both;
+}
+
+@mixin box-sizing($box){
+    -webkit-box-sizing: $box;
+    -moz-box-sizing: $box;
+    box-sizing: $box;
+}
+@mixin transform($what){
+    -webkit-transform: $what;
+    -moz-transform: $what;
+    -o-transform: $what;
+    transform: $what;
+}
+
+@mixin transition($prop, $time , $function : ease , $delay : 0s){
+    -webkit-transition: $prop $time $function $delay;
+    -moz-transition: $prop $time $function $delay;
+    -ms-transition: $prop $time $function $delay;
+    -o-transition: $prop $time $function $delay;
+    transition: $prop $time $function $delay;
+}
+@mixin animation($options){
+    -webkit-animation: $options;
+    -o-animation: $options;
+    -ms-animation: $options;
+    animation:  $options;
+}
+
+@mixin keyframes($animationName){
+    @-webkit-keyframes #{$animationName} {
+        @content
+    }
+    @keyframes #{$animationName} {
+        @content
+    }
+}
+
+.cf:before,
+.cf:after {
+content: " ";
+display: table;
+}
+
+.cf:after {
+clear: both;
+}
+
+.hide-on-mobile{
+    display: none;
+    @include respond(desktop){
+        display: block;
+    }
+}
+.hide-on-desktop{
+    display: block;
+    @include respond(desktop){
+        display: none;
+    }
+}
+
+.hide-after-tablet {
+    display: block;
+    @include respond(tablet){
+        display: none;
+    }
+}
+.show-after-tablet {
+    display: none;
+    @include respond(tablet){
+        display: block;
+    }
+}
