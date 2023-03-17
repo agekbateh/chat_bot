@@ -290,7 +290,9 @@ body {
             flex: 5 0 auto;
     padding: 0 10px;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+            box-sizing: border-box;
+    -ms-flex-negative: 1;
+        flex-shrink: 1; }
   .chatbot__form .label-file {
     display: block;
     cursor: pointer;
