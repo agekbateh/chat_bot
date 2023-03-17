@@ -219,12 +219,12 @@ body {
         padding: 13px 16px;
         box-sizing: border-box;
         background-color: #fff;
-
     }
     &__form {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 100%;
         .form-field {
             &--text {
                 flex: 5 0 auto;
@@ -266,6 +266,7 @@ body {
             font-size: 18px;
             letter-spacing: 0.3px;
             font-family: Arial, sans-serif;
+            outline: none;
         }
         .submit {
             background: #fff;
